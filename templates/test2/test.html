@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+  #feedback { font-size: 1.4em; }
+  #selectable .ui-selecting { background: #FECA40; }
+  #selectable .ui-selected { background: #F39814; color: white; }
+  #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+  </style>
+  <script>
+  //JavaScriptの変数にコマンドを入れる
+  //複数のマスを用意する
+  //環境変数
+  $(function() {
+  var tenant_id;
+    $( "#selectable" ).selectable({
+     selected: function( event, ui){
+     switch (ui.selected.value){
+        case {{ test21 }}:
+          tenant_id = "{{ test211 }}";
+          break;
+        case {{ test22 }}:
+          tenant_id = "{{ test221 }}";
+          break;
+        case {{ test23 }}:
+          tenant_id = "{{ test231 }}";
+          break;
+        case {{ test24 }}:
+          tenant_id = "{{ test241 }}";
+          break;
+      }
+      document.forms.ctr_form.tenant_id.value = tenant_id
+     }
+    });
+    $( "#draggable" ).draggable();
+    $( "#droppable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+            document.forms.ctr_form.command.value = "nova boot name=test "
+      }
+    });
+    $( "#droppable" ).droppable({
+      out: function( event, ui ) {
+        document.forms.ctr_form.command.value = ""
+      }
+
+    });
+
+  });
+  </script>
+</head>
+<p>
+<div id="draggable" class="ui-widget-content">
+  <p>command exec</p>
+</div>
+
+<div id="droppable" class="ui-widget-header">
+  <p>Drop here</p>
+</div>
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<ol id="selectable">
+  <li id="1" class="ui-widget-content" value="{{ test21 }}">{{ test11 }}</li>
+  <li id="2" class="ui-widget-content" value="{{ test22 }}">{{ test12 }}</li>
+  <li id="3" class="ui-widget-content" value="{{ test23 }}">{{ test13 }}</li>
+  <li id="4" class="ui-widget-content" value="{{ test24 }}">{{ test14 }}</li>
+</ol>
+<br>
+
+<form name="openstack" id="ctr_form" method="GET" action="/test2send/">
+  <INPUT type="text" name="command" id="command" value="">
+  <INPUT type="submit" name="namae" id="button" value="test">
+  <INPUT type="hidden" name="tenant_id" id="tenant_id" value="">
+</form>
+
+</body>
+</html>
