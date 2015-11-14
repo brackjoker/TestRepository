@@ -404,7 +404,7 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m exclusive > flows_exclusive_topo2.json  
 > **シナリオファイルの生成。データ生成はおこなうがCLIモードでは使わない。**  
 > INFO - exec command: python scenario_generator.py -f scenario_pattern_topo2_simple.json > scenario_topo2.json  
-> #-fオプションで指定されたテスト定義ファイル内のパラメータとして、"test-scenario-defs" - "class"指定がある場合は、指定されたclassで再読込する 。  
+> **-fオプションで指定されたテスト定義ファイル内のパラメータとして、"test-scenario-defs" - "class"指定がある場合は、指定されたclassで再読込する 。**  
 > INFO - reload runner class: scenario_pinger_topo2.ScenarioPingerTopo2  
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m exclusive > flows_exclusive_topo2.json  
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m shared > flows_shared_topo2.json  
