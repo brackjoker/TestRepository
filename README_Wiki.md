@@ -384,7 +384,7 @@ DUT側ポートのVLAN指定について、ひとつの物理ポートで複数�
 
 > #OpenFlow Controllerの起動  
 > hoge@prjexp01:~/PycharmProjects/l1patch-dev$ ryu-manager --verbose patch_ofc.py  
-  
+
 > #以下画面表示  
 > loading app patch_ofc.py
 > loading app ryu.controller.ofp_handler  
@@ -400,9 +400,9 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 * 手動テスト実行 (--manual)  
 * Layerオプション指定なし: L1patchの設定は行われない  
 
-> #フローデータの生成。データ生成はおこなうがOFSへの投入は行われない。  
+> **フローデータの生成。データ生成はおこなうがOFSへの投入は行われない。**  
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m exclusive > flows_exclusive_topo2.json  
-> #シナリオファイルの生成。データ生成はおこなうがCLIモードでは使わない。  
+> **シナリオファイルの生成。データ生成はおこなうがCLIモードでは使わない。**  
 > INFO - exec command: python scenario_generator.py -f scenario_pattern_topo2_simple.json > scenario_topo2.json  
 > #-fオプションで指定されたテスト定義ファイル内のパラメータとして、"test-scenario-defs" - "class"指定がある場合は、指定されたclassで再読込する 。  
 > INFO - reload runner class: scenario_pinger_topo2.ScenarioPingerTopo2  
