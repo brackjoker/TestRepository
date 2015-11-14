@@ -400,7 +400,7 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 * 手動テスト実行 (--manual)  
 * Layerオプション指定なし: L1patchの設定は行われない  
 
-> **フローデータの生成。データ生成はおこなうがOFSへの投入は行われない。**  
+> **#フローデータの生成。データ生成はおこなうがOFSへの投入は行われない。**  
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m exclusive > flows_exclusive_topo2.json  
 > **シナリオファイルの生成。データ生成はおこなうがCLIモードでは使わない。**  
 > INFO - exec command: python scenario_generator.py -f scenario_pattern_topo2_simple.json > scenario_topo2.json  
@@ -420,7 +420,7 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 > INFO - build test host: test host h5[h5-eth0] = MAC:0a:00:00:00:00:05, IP:192.168.2.15/24, Gateway:None  
 > **CLIモードに入る**  
 > mininet>   
-> #mininet topology を確認する(狙った順序でmininet ovsに接続されているかどうか)  
+> **mininet topology を確認する(狙った順序でmininet ovsに接続されているかどうか)**  
 > mininet> net  
 > h1 h1-eth0:s1-eth3  
 > h2 h2-eth0:s1-eth4  
