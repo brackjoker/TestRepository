@@ -382,10 +382,10 @@ DUT側ポートのVLAN指定について、ひとつの物理ポートで複数�
 ##  OpenFlowコントローラの起動
 ※サンプルのOFCのREST API URLはlocalhost:8080
 
-> #OpenFlow Controllerの起動  
+> **OpenFlow Controllerの起動**  
 > hoge@prjexp01:~/PycharmProjects/l1patch-dev$ ryu-manager --verbose patch_ofc.py  
 
-> #以下画面表示  
+> **以下画面表示**  
 > loading app patch_ofc.py
 > loading app ryu.controller.ofp_handler  
 > (省略)  
@@ -409,16 +409,16 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m exclusive > flows_exclusive_topo2.json  
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m shared > flows_shared_topo2.json  
 > INFO - exec command: python scenario_generator.py -f scenario_pattern_topo2_simple.json > scenario_topo2.json  
-> #テストを行う test-runner classを確認  
+> **テストを行う test-runner classを確認**  
 > INFO - run scenario test with runner-class: ScenarioPingerTopo2  
-> #テスト用ノードを生成  
+> **テスト用ノードを生成**  
 > INFO - Start run_test()  
 > INFO - build test host: test host h1[h1-eth0] = MAC:0a:00:00:00:00:01, IP:192.168.2.11/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h2[h2-eth0] = MAC:0a:00:00:00:00:02, IP:192.168.2.12/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h3[h3-eth0] = MAC:0a:00:00:00:00:03, IP:192.168.2.13/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h4[h4-eth0] = MAC:0a:00:00:00:00:04, IP:192.168.2.14/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h5[h5-eth0] = MAC:0a:00:00:00:00:05, IP:192.168.2.15/24, Gateway:None  
-> #CLIモードに入る  
+> ***CLIモードに入る***  
 > mininet>   
 > #mininet topology を確認する(狙った順序でmininet ovsに接続されているかどうか)  
 > mininet> net  
