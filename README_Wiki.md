@@ -418,7 +418,7 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 > INFO - build test host: test host h3[h3-eth0] = MAC:0a:00:00:00:00:03, IP:192.168.2.13/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h4[h4-eth0] = MAC:0a:00:00:00:00:04, IP:192.168.2.14/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h5[h5-eth0] = MAC:0a:00:00:00:00:05, IP:192.168.2.15/24, Gateway:None  
-> ***CLIモードに入る***  
+> **CLIモードに入る**  
 > mininet>   
 > #mininet topology を確認する(狙った順序でmininet ovsに接続されているかどうか)  
 > mininet> net  
@@ -435,8 +435,8 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 > s3 lo:  s3-eth1:s2-eth3 s3-eth2:h6-eth0.200 s3-eth3:h7-eth0  
 > c0  
 > mininet>  
-> #OVSのポート番号を確認する
-> #外部ネットワーク(実機のテスト象NW)でテストを実行する場合は、外部接続用のインタフェースが含まれることを確認すること
+> **OVSのポート番号を確認する**  
+> **外部ネットワーク(実機のテスト象NW)でテストを実行する場合は、外部接続用のインタフェースが含まれることを確認すること**  
 > mininet> dpctl show
 
 ## 手動テスト実行
@@ -448,31 +448,31 @@ L1patch物理情報定義(nodeinfo.json)作成にあたって、OFSのポート�
 * --manual 手動テスト実行  
 * --all-layers すべてのワイヤを設定  
 
-> #フロールール生成・テストシナリオ生成を行う。  
-> #(省略)  
+> **フロールール生成・テストシナリオ生成を行う。**  
+> **(省略)**  
 > INFO - reload runner class: scenario_pinger_topo2.ScenarioPingerTopo2  
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m exclusive > flows_exclusive_topo2.json  
 > INFO - exec command: python run_l1patch.py -p nodeinfo_topo2.json -l wireinfo_topo2.json -m shared > flows_shared_topo2.json  
 > INFO - exec command: python scenario_generator.py -f scenario_pattern_topo2_simple.json > scenario_topo2.json  
 > INFO - run scenario test with runner-class: ScenarioPingerTopo2  
-> #テスト用ノードを生成  
+> **テスト用ノードを生成**  
 > INFO - Start run_test()  
 > INFO - build test host: test host h1[h1-eth0] = MAC:0a:00:00:00:00:01, IP:192.168.2.11/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h2[h2-eth0] = MAC:0a:00:00:00:00:02, IP:192.168.2.12/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h3[h3-eth0] = MAC:0a:00:00:00:00:03, IP:192.168.2.13/24, Gateway:192.168.2.254  
 > INFO - build test host: test host h4[h4-eth0] = MAC:0a:00:00:00:00:04, IP:192.168.2.14/24,Gateway:192.168.2.254  
 > INFO - build test host: test host h5[h5-eth0] = MAC:0a:00:00:00:00:05, IP:192.168.2.15/24, Gateway:None  
-> #生成したフロールールをOFC REST　APIに設定する  
+> **生成したフロールールをOFC REST　APIに設定する**  
 > INFO - put exclusive-wire-flow-rules  
 > INFO - exec command: cat flows_exclusive_topo2.json | python patch_ofc_rest_knocker.py -m put  
 > INFO - Set API URL: http://localhost:8080/patch/flow  
 > INFO - Send PUT: node:s2, rule:{"priority": 65535, "outport": 4, "inport": 2, "dpid": 2}  
 > INFO - Response: {'date': 'Tue, 27 Oct 2015 11:59:29 GMT', 'status': '200', 'content-length': '0', 'content-type': 'text/html; charset=UTF-8'}  
 > INFO - Content:  
-> #(省略)  
-> #設定し終わったらCLIモードに入る  
+> **(省略)**  
+> **設定し終わったらCLIモードに入る**  
 > mininet>  
-> L1patch定義に問題がなければ、テスト用ノードの生成とDUTへの配置が行われ、手作業でテストが可能になる。  
+> **L1patch定義に問題がなければ、テスト用ノードの生成とDUTへの配置が行われ、手作業でテストが可能になる。**  
 > mininet> h6 ping -c3 h1  
 > PING 192.168.2.11 (192.168.2.11) 56(84) bytes of data.  
 > 64 bytes from 192.168.2.11: icmp_seq=1 ttl=64 time=0.498 ms  
