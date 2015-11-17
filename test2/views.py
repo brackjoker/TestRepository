@@ -9,6 +9,10 @@ def main(request):
 from django.http import HttpResponse, HttpRequest
 from django.template import loader, RequestContext
 import subprocess
+import pprint
+import requests
+import json
+#from test_pj.test2.json_wrapper import json_wrapper
 
 def main(req):
     contexts = RequestContext(req, {
@@ -47,5 +51,23 @@ def send(req):
         'title' : 'result test!',
         'result1' : str(result.stdout.readlines()),
     })
+
+    response = requests.post(
+    'http://172.20.2.20:5000/v2.0/tokens',
+    data=json.dumps({'auth':{'tenantName': 'admin','passwordCredentials':{'username':'admin','password':'admin'}}}),
+    headers={'Content-Type': 'application/json'})
+
+    #jsondata = json.load(response.json())
+
+    #pprint.pprint(response.json())
+    keylist = json.dumps(response.json()).keys()
+    for k in keylist:
+
+        print "[", k,"]"
+        print(keylist[k])
+ #   request_data = json_wrapper.post_get()
+
+
+
     template = loader.get_template('test2/res.html')
     return HttpResponse(template.render(contexts))
